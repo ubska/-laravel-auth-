@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -22,15 +23,22 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        $post = new Post();
+        $post->title = $request->title;
+        $post->slug = $request->slug;
+        $post->text = $request->text;
+        $post->reading_time = $request->reading_time;
+        $post->save();
+
+        return redirect()->route('posts.index')->with('success', 'Post creato con successo!');
     }
 
     /**
@@ -38,7 +46,8 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post = Post::find($id);
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
@@ -46,15 +55,22 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::find($id);
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PostRequest $request, string $id)
     {
-        //
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->text = $request->text;
+        $post->reading_time = $request->reading_time;
+        $post->save();
+
+        return redirect()->route('admin.posts.index')->with('success', 'Post aggiornato con successo!');
     }
 
     /**

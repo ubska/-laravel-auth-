@@ -18,8 +18,8 @@
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td>
-                        <a href="" class="btn btn-info btn-sm">Show</a>
-                        <a href="" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-info btn-sm">Show</a>
+                        <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')

@@ -9,7 +9,7 @@
             <a href="{{ route('admin.posts.index') }}">ELENCO POST</a>
         </li>
         <li class="nav-item">
-            <a href="#">NUOVO POST</a>
+            <a href="{{ route('admin.posts.create') }}">NUOVO POST</a>
         </li>
     </ul>
 </aside>
