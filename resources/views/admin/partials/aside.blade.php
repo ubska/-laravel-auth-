@@ -1,1 +1,15 @@
-<aside>SIDE SECTION</aside>
+<!-- admin/partials/aside.blade.php -->
+
+<aside class=" admin-sidebar bg-dark text-white vh-100 p-3">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a href="#">HOME</a>
+        </li>
+        <li class="nav-item">
+            <a href="#">ELENCO POST</a>
+        </li>
+        <li class="nav-item">
+            <a href="#">NUOVO POST</a>
+        </li>
+    </ul>
+</aside>
