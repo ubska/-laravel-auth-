@@ -13,7 +13,10 @@
 <body>
     @include('admin.partials.header')
     <div class="container-fluid d-flex p-0">
-        @include('admin.partials.aside')
+        @auth
+            @include('admin.partials.aside')
+        @endauth
+
         @yield('content')
     </div>
 
