@@ -6,7 +6,7 @@
             <a href="{[route('admin.home')]}">HOME</a>
         </li>
         <li class="nav-item">
-            <a href="#">ELENCO POST</a>
+            <a href="{{ route('admin.posts.index') }}">ELENCO POST</a>
         </li>
         <li class="nav-item">
             <a href="#">NUOVO POST</a>
