@@ -2,6 +2,16 @@
 
 @section('content')
     <h1>Modifica il Post</h1>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
 
     <form action="{{ route('admin.posts.update', $post->id) }}" method="post">
         @csrf
@@ -26,7 +36,7 @@
 
         <div class="mb-3">
             <label for="text" class="form-label">Contenuto</label>
-            <textarea class="form-control" id="text" name="text" rows="6">{{ old('text', $post->text) }}</textarea>
+            <textarea class="form-control" id="content" name="content" rows="6">{{ old('text', $post->text) }}</textarea>
             @error('text')
                 <div class="text-danger">{{ $message }}</div>
             @enderror

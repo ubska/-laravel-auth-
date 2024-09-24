@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -33,12 +34,12 @@ class PostController extends Controller
     {
         $post = new Post();
         $post->title = $request->title;
-        $post->slug = $request->slug;
+        $post->slug = Str::slug($request->title);
         $post->text = $request->text;
         $post->reading_time = $request->reading_time;
         $post->save();
 
-        return redirect()->route('posts.index')->with('success', 'Post creato con successo!');
+        return redirect()->route('admin.posts.index')->with('success', 'Post creato con successo!');
     }
 
     /**
@@ -66,7 +67,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->title = $request->title;
-        $post->text = $request->text;
+        $post->text = $request->content;
         $post->reading_time = $request->reading_time;
         $post->save();
 

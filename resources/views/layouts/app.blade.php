@@ -12,12 +12,14 @@
 
 <body>
     @include('admin.partials.header')
-    <div class="container-fluid d-flex p-0">
+    <div class="container-fluid">
         @auth
             @include('admin.partials.aside')
         @endauth
 
-        @yield('content')
+        <main>
+            @yield('content')
+        </main>
     </div>
 
     @include('admin.partials.footer')
