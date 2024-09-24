@@ -20,12 +20,13 @@
                     <td>
                         <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-info btn-sm">Show</a>
                         <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="" method="POST" style="display:inline;">
+                        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST" style="display:inline;"
+                            onsubmit="return confirm('Sei sicuro di voler eliminare questo post?');">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm"
-                                onclick="return confirm('Sei sicuro di voler eliminare questo post?');">Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                         </form>
+
                     </td>
                 </tr>
             @endforeach

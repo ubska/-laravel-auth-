@@ -5,7 +5,7 @@
 
     <form action="{{ route('admin.posts.update', $post->id) }}" method="post">
         @csrf
-        @method('PUT') <!-- Indica che stiamo facendo un aggiornamento -->
+        @method('PUT')
 
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
